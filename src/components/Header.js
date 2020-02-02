@@ -25,7 +25,7 @@ class Header extends Component {
         <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
             <ReactBootStrap.Nav className="mr-auto"> 
-            { this.props.isAuth ?
+              { this.props.isAuth ?
               <Link to="/dashboard">
                 <ReactBootStrap.Nav.Link href="#features">Dashboard</ReactBootStrap.Nav.Link>
               </Link> : null }
@@ -41,9 +41,10 @@ class Header extends Component {
                 </Link> : null }
               </ReactBootStrap.Nav>
               <ReactBootStrap.Nav>
+              { this.props.isAuth ?
                 <Link to="/signout" onClick={this.signOut}>
               <ReactBootStrap.Nav.Link href="#signout">Logout</ReactBootStrap.Nav.Link>
-                </Link>
+              </Link> : null }
               </ReactBootStrap.Nav>
             </ReactBootStrap.Navbar.Collapse>
           </ReactBootStrap.Navbar>
