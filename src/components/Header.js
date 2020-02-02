@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import * as ReactBootStrap from 'react-bootstrap';
 
 import * as actions from '../actions';
 
@@ -16,32 +17,37 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ marginBottom: '30px' }}>
-        <Link className="navbar-brand" to="/">Walt13xD API Auth</Link>
-
-        <div className="collapse navbar-collapse">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/dashboard">Dashboard</Link>
-            </li>
-          </ul>
-
-          <ul className="nav navbar-nav ml-auto">
-            { !this.props.isAuth ?
-              [<li className="nav-item" key="signup">
-                <Link className="nav-link" to="/signup">Sign Up</Link>
-              </li>,
-              <li className="nav-item" key="signin">
-                <Link className="nav-link" to="/signin">Sign In</Link>
-              </li>] : null }
-            
+      <div className="App">
+        <ReactBootStrap.Navbar collapseOnSelect expand="xl" bg="dark" variant="dark">
+          <Link to="/">
+            <ReactBootStrap.Navbar.Brand href="#home"><img src="favicon.ico" alt="logo"/></ReactBootStrap.Navbar.Brand>
+          </Link>
+        <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
+            <ReactBootStrap.Nav className="mr-auto"> 
             { this.props.isAuth ?
-              <li className="nav-item">
-                <Link className="nav-link" to="/signout" onClick={this.signOut}>Sign Out</Link>
-              </li> : null }
-          </ul>
-        </div>
-      </nav>
+              <Link to="/dashboard">
+                <ReactBootStrap.Nav.Link href="#features">Dashboard</ReactBootStrap.Nav.Link>
+              </Link> : null }
+                </ReactBootStrap.Nav>
+              <ReactBootStrap.Nav>
+              { !this.props.isAuth ?
+              <Link to="/signup">
+                <ReactBootStrap.Nav.Link href="#signup">Sign Up</ReactBootStrap.Nav.Link>
+              </Link> :null }
+              { !this.props.isAuth ?  
+                <Link to="/signin">
+              <ReactBootStrap.Nav.Link href="#signin">Login</ReactBootStrap.Nav.Link>
+                </Link> : null }
+              </ReactBootStrap.Nav>
+              <ReactBootStrap.Nav>
+                <Link to="/signout" onClick={this.signOut}>
+              <ReactBootStrap.Nav.Link href="#signout">Logout</ReactBootStrap.Nav.Link>
+                </Link>
+              </ReactBootStrap.Nav>
+            </ReactBootStrap.Navbar.Collapse>
+          </ReactBootStrap.Navbar>
+      </div>
     );
   }
 }
