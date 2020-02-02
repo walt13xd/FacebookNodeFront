@@ -28,7 +28,7 @@ class Dashboard extends Component {
 
         <h2>Link your social media accounts</h2>
         <FacebookLogin
-          appId= {process.env.FB_CLIENT_ID}
+          appId= '241633926233214'
           disabled={true}
           render={renderProps => (
             <button style={{ marginRight: 15 }} className="btn btn-primary" onClick={renderProps.onClick} disabled={this.props.dashboard.methods.includes('facebook') ? true : false}>Link with Facebook</button>

@@ -67,7 +67,7 @@ class SignUp extends Component {
               Or sign up using third-party services
             </div>
             <FacebookLogin
-              appId={process.env.FB_CLIENT_ID}
+              appId='241633926233214'
               render={renderProps => (
                 <button style={{ marginRight: 15 }} className="btn btn-primary" onClick={renderProps.onClick}>Facebook</button>
               )}
