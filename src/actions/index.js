@@ -11,7 +11,7 @@ import {
 require('dotenv').config();
 
 
-const url = process.env.APP_URL || 'http://localhost:8000';
+const url = process.env.APP_URL || 'https://facebooknodeapi.herokuapp.com';
 
 export const linkFacebook = data => {
   return async dispatch => {
